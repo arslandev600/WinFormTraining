@@ -1,3 +1,5 @@
+using TrainingApplication.Models;
+
 namespace TrainingApplication
 {
     public partial class Form1 : Form
@@ -17,18 +19,28 @@ namespace TrainingApplication
             //==Premitive types
             //int, char, string, double, float
 
-            int age = 30;
-            char gender = 'M';
-            string name = "Arslan Haider";
-           double marks = 3.322;
-            float dt = 3.42f;
-            string psswrd = txtPassword.Text;
 
-            string email = "abc@gmail.com";
-            txtUserName.Text = name;
-            txtEmail.Text = email;
-            txtGender.Text = gender.ToString();
-            lblPassword.Text = psswrd;
+            ///Creation of Employee Objecct
+            Employee emp = new Employee();
+            emp.Id = Guid.NewGuid().ToString();
+            emp.Gender = cmbGender.SelectedItem.ToString();
+            emp.Email = txtEmail.Text.ToString();
+            emp.Active = chkActive.Checked;
+            emp.Password = txtPassword.Text;
+            emp.UserName = txtUserName.Text;
+            emp.Address = txtAddress.Text;
+
+
+
+            lblUserName.Text = emp.UserName;
+            lblPassword.Text = emp.Password;
+            lblGender.Text = emp.Gender;
+            lblEmail.Text = emp.Email;
+            lblActive.Text = emp.Active.ToString();
+            lblAddress.Text = emp.Address;
+            lblDob.Text = emp.CreationDate.ToShortDateString();
+                 
+
 
         }
 
